@@ -1,0 +1,126 @@
+# depslib dependency file v1.0
+1669064258 source:c:\users\abdulkareem\desktop\librarysystemproject\main.cpp
+	<iostream>
+	"include/LibrarySystem.h"
+	"include/Admin.h"
+	<regex>
+
+1669064714 source:c:\users\abdulkareem\desktop\librarysystemproject\src\sqlsystem.cpp
+	"../include/SqlSystem.h"
+	<iostream>
+
+1669064258 c:\users\abdulkareem\desktop\librarysystemproject\include\sqlsystem.h
+	<vector>
+	<string>
+	"sqlite3.h"
+	<regex>
+
+1664467309 c:\users\abdulkareem\desktop\librarysystemproject\include\sqlite3.h
+	<stdarg.h>
+
+1669064714 source:c:\users\abdulkareem\desktop\librarysystemproject\src\librarysystem.cpp
+	"LibrarySystem.h"
+	<iostream>
+
+1668885227 c:\users\abdulkareem\desktop\librarysystemproject\include\librarysystem.h
+	"SqlSystem.h"
+	"Doctor.h"
+	"Student.h"
+	"TeacherAssistant.h"
+	<sstream>
+
+1667899809 source:c:\users\abdulkareem\desktop\librarysystemproject\src\date.cpp
+	"Date.h"
+	<iostream>
+
+1668878276 c:\users\abdulkareem\desktop\librarysystemproject\include\date.h
+	<ctime>
+
+1669066011 source:c:\users\abdulkareem\desktop\librarysystemproject\src\course.cpp
+	"Course.h"
+
+1669031190 c:\users\abdulkareem\desktop\librarysystemproject\include\course.h
+	<vector>
+	<string>
+	"Date.h"
+	"Message.h"
+	"Assignment.h"
+	<iostream>
+	"SqlSystem.h"
+
+1669066011 source:c:\users\abdulkareem\desktop\librarysystemproject\src\teacher.cpp
+	"Teacher.h"
+	<iostream>
+
+1669035678 c:\users\abdulkareem\desktop\librarysystemproject\include\teacher.h
+	<vector>
+	<string>
+	"Course.h"
+	"Person.h"
+
+1668879773 source:c:\users\abdulkareem\desktop\librarysystemproject\src\replay.cpp
+	"Replay.h"
+
+1668879706 c:\users\abdulkareem\desktop\librarysystemproject\include\replay.h
+	<iostream>
+	"SqlSystem.h"
+
+1669031053 source:c:\users\abdulkareem\desktop\librarysystemproject\src\message.cpp
+	"Message.h"
+
+1669035037 c:\users\abdulkareem\desktop\librarysystemproject\include\message.h
+	<Replay.h>
+	<iostream>
+	<vector>
+
+1669028388 source:c:\users\abdulkareem\desktop\librarysystemproject\src\assignment.cpp
+	"Assignment.h"
+
+1669028388 c:\users\abdulkareem\desktop\librarysystemproject\include\assignment.h
+	"Date.h"
+	<iostream>
+	<map>
+	"SqlSystem.h"
+
+1669031357 source:c:\users\abdulkareem\desktop\librarysystemproject\src\doctor.cpp
+	"Doctor.h"
+
+1669031053 c:\users\abdulkareem\desktop\librarysystemproject\include\doctor.h
+	"Teacher.h"
+	"SqlSystem.h"
+	<map>
+	<set>
+
+1668882656 source:c:\users\abdulkareem\desktop\librarysystemproject\src\person.cpp
+	"Person.h"
+	"Teacher.h"
+	"SqlSystem.h"
+
+1668882656 c:\users\abdulkareem\desktop\librarysystemproject\include\person.h
+	"Message.h"
+
+1669066011 source:c:\users\abdulkareem\desktop\librarysystemproject\src\teacherassistant.cpp
+	"TeacherAssistant.h"
+
+1668882750 c:\users\abdulkareem\desktop\librarysystemproject\include\teacherassistant.h
+	"Teacher.h"
+
+1669066011 source:c:\users\abdulkareem\desktop\librarysystemproject\src\student.cpp
+	"Student.h"
+
+1668882708 c:\users\abdulkareem\desktop\librarysystemproject\include\student.h
+	"Person.h"
+	"Course.h"
+
+1669017925 source:c:\users\abdulkareem\desktop\librarysystemproject\src\admin.cpp
+	"Admin.h"
+
+1669017038 c:\users\abdulkareem\desktop\librarysystemproject\include\admin.h
+	<iostream>
+	"SqlSystem.h"
+	<vector>
+	"Doctor.h"
+	"TeacherAssistant.h"
+	"Student.h"
+	<map>
+

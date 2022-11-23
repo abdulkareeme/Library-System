@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="LibrarySystemProject" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/LibrarySystemProject" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/LibrarySystemProject" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="include/Admin.h" />
+		<Unit filename="include/Assignment.h" />
+		<Unit filename="include/Course.h" />
+		<Unit filename="include/Date.h" />
+		<Unit filename="include/Doctor.h" />
+		<Unit filename="include/LibrarySystem.h" />
+		<Unit filename="include/Message.h" />
+		<Unit filename="include/Person.h" />
+		<Unit filename="include/Replay.h" />
+		<Unit filename="include/SqlSystem.h" />
+		<Unit filename="include/Student.h" />
+		<Unit filename="include/Teacher.h" />
+		<Unit filename="include/TeacherAssistant.h" />
+		<Unit filename="include/sqlite3.h" />
+		<Unit filename="include/sqlite3ext.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/Admin.cpp" />
+		<Unit filename="src/Assignment.cpp" />
+		<Unit filename="src/Course.cpp" />
+		<Unit filename="src/Date.cpp" />
+		<Unit filename="src/Doctor.cpp" />
+		<Unit filename="src/LibrarySystem.cpp" />
+		<Unit filename="src/Message.cpp" />
+		<Unit filename="src/Person.cpp" />
+		<Unit filename="src/Replay.cpp" />
+		<Unit filename="src/SqlSystem.cpp" />
+		<Unit filename="src/Student.cpp" />
+		<Unit filename="src/Teacher.cpp" />
+		<Unit filename="src/TeacherAssistant.cpp" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

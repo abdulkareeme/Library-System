@@ -8,7 +8,10 @@ void LibrarySystem::DisplayDoctorMenu()
 2 - Send invite to a teacher assistant\n\
 3 - View courses\n\
 4 - Delete Course\n\
-5 - Logout\n\
+5 - View my messages\n\
+6 - View recived message\n\
+7 - Send message\n\
+8 - Logout\n\
 Input Number : ";
 }
 
@@ -19,9 +22,9 @@ void LibrarySystem::RunDoctorOptions(Doctor Dr)
         LibrarySystem::DisplayDoctorMenu();
         int Chois;
         cin>>Chois;
-        if(cin.fail() || Chois<1 || Chois>4)
+        if(cin.fail() || Chois<1 || Chois>7)
         {
-            if(!cin.fail() && Chois==5)return;
+            if(!cin.fail() && Chois==8)return;
             cin.clear();
             cin.ignore(1000,'\n');
             cout<<"Invalid Input\n";
@@ -43,6 +46,18 @@ void LibrarySystem::RunDoctorOptions(Doctor Dr)
         {
             Dr.DeleteCourse();
         }
+        else if(Chois==5)
+        {
+            Dr.ViewMyMessages();
+        }
+        else if(Chois==6)
+        {
+            Dr.ViewRecivedMessages();
+        }
+        else if(Chois==7)
+        {
+            SendMessage(Dr);
+        }
     }
 
 }
@@ -50,7 +65,10 @@ void LibrarySystem::DisplayStudentMenu()
 {
     cout<<"\n1 - Regiter to course\n\
 2 - View courses\n\
-3 - Logout\n\
+3 - View my messages\n\
+4 - View recived message\n\
+5 - Send message\n\
+6 - Logout\n\
 Input Number : ";
 }
 void LibrarySystem::RunStudentOptions(Student Stu)
@@ -60,9 +78,9 @@ void LibrarySystem::RunStudentOptions(Student Stu)
         LibrarySystem::DisplayStudentMenu();
         int Chois;
         cin>>Chois;
-        if(cin.fail() || Chois<1 || Chois>2)
+        if(cin.fail() || Chois<1 || Chois>5)
         {
-            if(!cin.fail() && Chois==3)return;
+            if(!cin.fail() && Chois==6)return;
             cin.clear();
             cin.ignore(1000,'\n');
             cout<<"Invalid Input\n";
@@ -76,13 +94,28 @@ void LibrarySystem::RunStudentOptions(Student Stu)
         {
             Stu.ViewCourse();
         }
+        else if(Chois==3)
+        {
+            Stu.ViewMyMessages();
+        }
+        else if(Chois==4)
+        {
+            Stu.ViewRecivedMessages();
+        }
+        else if(Chois==5)
+        {
+            SendMessage(Stu);
+        }
     }
 }
 void LibrarySystem::DisplayTeacherAssistantMenu()
 {
     cout<<"\n1 - View courses\n\
 2 - View Invitations\n\
-3 - Logout\n\
+3 - View my messages\n\
+4 - View recived message\n\
+5 - Send message\n\
+6 - Logout\n\
 Input Number : ";
 }
 void LibrarySystem::RunTeacherAssistantOptions(TeacherAssistant TA)
@@ -92,9 +125,9 @@ void LibrarySystem::RunTeacherAssistantOptions(TeacherAssistant TA)
         LibrarySystem::DisplayTeacherAssistantMenu();
         int Chois;
         cin>>Chois;
-        if(cin.fail() || Chois<1 || Chois>2)
+        if(cin.fail() || Chois<1 || Chois>5)
         {
-            if(!cin.fail() && Chois==3)return;
+            if(!cin.fail() && Chois==6)return;
             cin.clear();
             cin.ignore(1000,'\n');
             cout<<"Invalid Input\n";
@@ -107,6 +140,18 @@ void LibrarySystem::RunTeacherAssistantOptions(TeacherAssistant TA)
         else if(Chois==2)
         {
             TA.AnswereInvitation();
+        }
+        else if(Chois==3)
+        {
+            TA.ViewMyMessages();
+        }
+        else if(Chois==4)
+        {
+            TA.ViewRecivedMessages();
+        }
+        else if(Chois==5)
+        {
+            SendMessage(TA);
         }
     }
 }
@@ -362,14 +407,14 @@ void LibrarySystem::QueryGetMessagesData_DB(vector<Message> &ListMyMessage,vecto
         sqlite3_stmt* statment;
         sqlite3_open("Database/librarySystem.db",&DB);
 
-        string Query = "SELECT \"message id\" , \"message type\" , \"reciver id\",\"reciver name\" , \"text message\" FROM message WHERE \"user id\" = "+to_string(UserID)+" ;";
+        string Query = "SELECT \"message id\" , \"message type\" , \"reciver id\",\"reciver name\" , \"text message\" FROM message WHERE \"user id\" = "+to_string(UserID)+" AND \"message type\" = 0 ;";
         int result=MakeDQLQuery(choose(DB,&statment,Query.c_str()));
         if(result != SQLITE_OK)cout<<sqlite3_errmsg(DB)<<"\n";
         while((result=sqlite3_step(statment))==SQLITE_ROW)
         {
             sqlite3_stmt * statment2;
-            string Query2="SELECT replay.\"replay id\" , replay.\"replayer id\" , replay.\"replayer name\" , replay.\"replayed message\" FROM replay , message WHERE replay.\"message id\" = "
-                          +to_string((int)sqlite3_column_int(statment,0))+" AND message.\"message type\" = 0 ;";
+            string Query2="SELECT replay.\"replay id\" , replay.\"replayer id\" , replay.\"replayer name\" , replay.\"replayed message\" FROM replay WHERE replay.\"message id\" = "
+                          +to_string((int)sqlite3_column_int(statment,0))+" ;";
             int result2=MakeDQLQuery(choose(DB,&statment2, Query2.c_str()));
             if(result2 != SQLITE_OK)cout<<sqlite3_errmsg(DB)<<"\n";
             vector<Replay>ListReplays;
@@ -394,8 +439,8 @@ void LibrarySystem::QueryGetMessagesData_DB(vector<Message> &ListMyMessage,vecto
         while((result=sqlite3_step(statment))==SQLITE_ROW)
         {
             sqlite3_stmt * statment2;
-            string Query2="SELECT replay.\"replay id\" , replay.\"replayer id\" , replay.\"replayer name\" , replay.\"replayed message\" FROM replay , message WHERE replay.\"message id\" = "
-                          +to_string((int)sqlite3_column_int(statment,0))+" AND message.\"message type\" = 0 ;";
+            string Query2="SELECT replay.\"replay id\" , replay.\"replayer id\" , replay.\"replayer name\" , replay.\"replayed message\" FROM replay  WHERE replay.\"message id\" = "
+                          +to_string((int)sqlite3_column_int(statment,0))+" ;";
             int result2=MakeDQLQuery(choose(DB,&statment2, Query2.c_str()));
             if(result2 != SQLITE_OK)cout<<sqlite3_errmsg(DB)<<"\n";
             vector<Replay>ListReplays;
@@ -538,8 +583,8 @@ void LibrarySystem::QueryGetCourseData_DB(vector<Course> &MyListCourses, int Use
         while((result=sqlite3_step(statment))==SQLITE_ROW)
         {
             sqlite3_stmt * statment2;
-            string Query2="SELECT replay.\"replay id\" , replay.\"replayer id\" , replay.\"replayer name\" , replay.\"replayed message\" FROM replay , message WHERE replay.\"message id\" = "
-                          +to_string((int)sqlite3_column_int(statment,0))+" AND message.\"message type\" = 1 ;";
+            string Query2="SELECT replay.\"replay id\" , replay.\"replayer id\" , replay.\"replayer name\" , replay.\"replayed message\" FROM replay WHERE replay.\"message id\" = "
+                          +to_string((int)sqlite3_column_int(statment,0))+" ;";
             int result2=MakeDQLQuery(choose(DB,&statment2, Query2.c_str()));
             if(result2 != SQLITE_OK)cout<<sqlite3_errmsg(DB)<<88<<"\n";
             vector<Replay>ListReplays;
@@ -768,4 +813,58 @@ void LibrarySystem::FillAllCourses()
         Course::AllCourses.push_back(crs);
     }
     sqlite3_close(DB);
+}
+
+void LibrarySystem::SendMessage(Person person)
+{
+    while(true)
+    {
+        sqlite3* DB;
+        sqlite3_stmt* statment;
+        sqlite3_open("Database/librarySystem.db",&DB);
+        int result=MakeDQLQuery(choose(DB,&statment,"SELECT \"user id\" , \"full name\" , username , \"account type\" FROM user ; "));
+        if(result != SQLITE_OK)cout<<sqlite3_errmsg(DB)<<"\n";
+        cout<<"\n";
+        while((result=sqlite3_step(statment))==SQLITE_ROW)
+        {
+            if((int)sqlite3_column_int(statment,3)==1)
+            {
+                cout<<"Student : ";
+            }
+            else if((int)sqlite3_column_int(statment,3)==2)
+            {
+                cout<<"Doctor : ";
+            }
+            else
+            {
+                cout<<"Teacher Assistant : ";
+            }
+            cout<<(char*)sqlite3_column_text(statment,1)<<"\nUser ID : "<<(int)sqlite3_column_int(statment,0)
+            <<"   Username : "<<(char*)sqlite3_column_text(statment,2)<<"\n\n";
+        }
+        sqlite3_close(DB);
+
+        cout<<"Input user id , or -1 to cancel : ";
+        int ReciverID;
+        cin>>ReciverID;
+        if(cin.fail())
+        {
+            cout<<"Invalid Input\n";
+            cin.clear();
+            cin.ignore(1000,'\n');
+            continue;
+        }
+        if(ReciverID==-1)return;
+        cout<<"Input the message : ";
+        string TextMessage;
+        cin.ignore();
+        getline(cin,TextMessage,'\n');
+        if(!ValidateText(TextMessage))
+        {
+            cout<<"Invalid Input\n";
+            continue;
+        }
+        person.SendMessage(person.GetUserID(),ReciverID,person.GetFullName(),TextMessage);
+        cout<<"Proccess success :)\n\n";
+    }
 }

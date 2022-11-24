@@ -35,7 +35,7 @@ bool ValidateEmail(string Email)
 bool ValidateText(string Text)
 {
     if(Text.size()==0 || count(Text.begin(),Text.end() , ' ')==Text.size())return false;
-    string valid="/.,!?%^&*()-_+='";
+    string valid="/.,!?%^&*()-_+=' 1234567890";
     for(int i=0;i<Text.size(); i++)
     {
         if((Text[i]>='a' && Text[i]<='z') || (Text[i]>='A' && Text[i]<='Z'))continue;

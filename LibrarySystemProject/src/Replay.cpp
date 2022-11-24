@@ -1,6 +1,6 @@
 #include "Replay.h"
-using namespace std;
-Replay::Replay(){}
+
+
 Replay::Replay(int MessageID,int ReplayerID,string ReplayerName, string TextMessage)
 {
     this->MessageID=MessageID;
@@ -8,7 +8,7 @@ Replay::Replay(int MessageID,int ReplayerID,string ReplayerName, string TextMess
     this->TextMessage=TextMessage;
     this->ReplayerName=ReplayerName;
 
-    string Query="INSERT INTO repaly (\"message id\" , \"replayer id\" , \"replayer name\" , \"replayed message\" ) \
+    string Query="INSERT INTO replay (\"message id\" , \"replayer id\" , \"replayer name\" , \"replayed message\" ) \
     VALUES ( "+to_string(MessageID)+" , "+to_string(ReplayerID)+" , '"+ReplayerName+"' , '"+TextMessage+"' ) ;";
     MakeDMLQuery(Query.c_str());
 

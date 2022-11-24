@@ -16,7 +16,7 @@ The system made whith c++ and sqlite datebase
 # Feature :
 
 - Signup and login as a doctor or student or teacher assistant
-- Registration as a doctor or teacher assistant must be Accept by admin for the first time to open the account
+- Registration as a doctor or teacher assistant must be Accept by admin for the first time to verified the account
 - Every tow users can send messages to each other and replay on the messages
 - Only doctor can create course , and he can can cearte assignments on this course
 - Course has assignments and posts and teachers
@@ -25,7 +25,7 @@ The system made whith c++ and sqlite datebase
 - Students can submit or edit their answers 
 - Doctor and teachers can correct solutions and set grades and commnets on solutions and the rate will be genereted (A , B+ , F , ....)
 - Doctor and teachers can change deadlines for the course and assignments 
-- Doctor and teachers can view statistics every assignment on their courses
+- Doctor and teachers can view statistics for every assignment on their courses
 - Doctor can send invitaion on his course to any teacher who not in them
 - teacher can accept or reject the invitation
 - teacher can create assignment on courses who are enrolled in them
@@ -34,6 +34,8 @@ The system made whith c++ and sqlite datebase
 - Student can view all assignment info for a course and view his grades and his marks ratio
 - Student can do unregister from course 
 - Doctor can delete his own courses with all data on it
+- Course could have requirment courses 
+- Student can't register in course if he was not registered with required courses for this course 
 
 # Images :
 

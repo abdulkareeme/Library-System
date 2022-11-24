@@ -1,7 +1,7 @@
 # Library System 
 
 Tihs library system is a consol application for making a courses owned by doctors.
-Students can register on these courses and benefit from the features of this system.
+Students can register in these courses and benefit from the features of this system.
 These courses is assisted by many teachers who are invited by owners of these courses.
 The system made whith c++ and sqlite datebase
 

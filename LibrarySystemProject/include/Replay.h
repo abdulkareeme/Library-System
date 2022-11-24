@@ -19,8 +19,6 @@ class Replay
 
     public:
 
-        Replay ();
-
         Replay(int MessageID,int ReplayerID,string ReplayerName, string TextMessage);
 
         Replay(int ReplayID, int MessageID,int ReplayerID,string ReplayerName, string TextMessage);

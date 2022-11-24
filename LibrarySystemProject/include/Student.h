@@ -11,7 +11,6 @@ class Student : public Person
       vector<Course>MyListCourses;
 
     public:
-        //think about not set AccountType here and with doctor and TA and set it by default
 
         Student(int ID , string FullName , string UserName, string Email , string Password , int AccountType
                   , vector<Message>ListMyMessages , vector<Message>ListRecivedMessages , vector<Course>MyListCourses);

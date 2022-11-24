@@ -38,9 +38,9 @@ The system made whith c++ and sqlite datebase
 - Student can't register in course if he was not registered with required courses for this course 
 
 # Note : 
-To login as admin input 1000000007 (10^9 +7) in login menu
-To run the project you must connect the library (sqlite3) in your IDE
-connect sqlite3 in codeblocks : https://youtu.be/0LCrX8r8QmY
+- To login as admin input 1000000007 (10^9 +7) in login menu
+- To run the project you must connect the library (sqlite3) in your IDE
+- connect sqlite3 in codeblocks : https://youtu.be/0LCrX8r8QmY
 
 # some images :
 

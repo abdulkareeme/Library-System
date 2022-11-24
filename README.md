@@ -11,7 +11,7 @@ The system made whith c++ and sqlite datebase
 
 # Entity Relationship Diagram : 
 
-![example 1](https://github.com/abdulkareeme/Library-System/blob/main/LibrarySystemProject/Diagrams/Library%20System%20ER.jpg)
+![example 2](https://github.com/abdulkareeme/Library-System/blob/main/LibrarySystemProject/Diagrams/Library%20System%20ER.jpg)
 
 # Feature :
 
@@ -37,7 +37,25 @@ The system made whith c++ and sqlite datebase
 - Course could have requirment courses 
 - Student can't register in course if he was not registered with required courses for this course 
 
-# Images :
+# Note : 
+To login as admin input 1000000007 (10^9 +7) in login menu
 
+# some images :
 
+![example 3](https://github.com/abdulkareeme/Library-System/blob/main/LibrarySystemProject/Images/Table%20user%20.png)
 
+![example 4](https://github.com/abdulkareeme/Library-System/blob/main/LibrarySystemProject/Images/Table%20assignment.png)
+
+![example 5](https://github.com/abdulkareeme/Library-System/blob/main/LibrarySystemProject/Images/Delete%20course.png)
+
+![example 6](https://github.com/abdulkareeme/Library-System/blob/main/LibrarySystemProject/Images/Assignment%20info.png)
+
+![example 7](https://github.com/abdulkareeme/Library-System/blob/main/LibrarySystemProject/Images/Register.png)
+
+![example 8](https://github.com/abdulkareeme/Library-System/blob/main/LibrarySystemProject/Images/Signup.png)
+
+![example 9](https://github.com/abdulkareeme/Library-System/blob/main/LibrarySystemProject/Images/Login%20as%20admin.png)
+
+![example 10](https://github.com/abdulkareeme/Library-System/blob/main/LibrarySystemProject/Images/Create%20course.png)
+
+![example 12](https://github.com/abdulkareeme/Library-System/blob/main/LibrarySystemProject/Images/View%20solution.png)

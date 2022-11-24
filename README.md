@@ -1,12 +1,13 @@
 # Library System 
 
-Tihs library system is an electronic system for making a courses owned by doctors.
+Tihs library system is a consol application for making a courses owned by doctors.
 Students can register on these courses and benefit from the features of this system.
-These courses is assisted by many teachers who are invited by the owners of these courses.
+These courses is assisted by many teachers who are invited by owners of these courses.
+The system made whith c++ and sqlite datebase
 
 # Class Diagram :
 
-![example 1](https://github.com/abdulkareeme/Library-System/blob/main/LibrarySystemProject/Diagrams/Library%20System%20Digram.jpg)
+![example 1](https://github.com/abdulkareeme/Library-System/blob/main/LibrarySystemProject/Diagrams/Library%20system%20diagram.jpg)
 
 # Entity Relationship Diagram : 
 
@@ -16,7 +17,25 @@ These courses is assisted by many teachers who are invited by the owners of thes
 
 - Signup and login as a doctor or student or teacher assistant
 - Registration as a doctor or teacher assistant must be Accept by admin for the first time to open the account
-- 
-- Doctor can creat course and creat assignments in this course 
-- Each course has a number of assignments and posts and number
+- Every tow users can send messages to each other and replay on the messages
+- Only doctor can create course , and he can can cearte assignments on this course
+- Course has assignments and posts and teachers
+- There is deadline for every course and assignment, students can't register or set solution after the deadline
+- Assignment has question and full mark 
+- Students can submit or edit their answers 
+- Doctor and teachers can correct solutions and set grades and commnets on solutions and the rate will be genereted (A , B+ , F , ....)
+- Doctor and teachers can change deadlines for the course and assignments 
+- Doctor and teachers can view statistics every assignment on their courses
+- Doctor can send invitaion on his course to any teacher who not in them
+- teacher can accept or reject the invitation
+- teacher can create assignment on courses who are enrolled in them
+- Student can register on any course after pay (typeing 'pay') and can get password of the course 
+- Every user in course can add posts and comment on the posts 
+- Student can view all assignment info for a course and view his grades and his marks ratio
+- Student can do unregister from course 
+- Doctor can delete his own courses with all data on it
+
+# Images :
+
+
 

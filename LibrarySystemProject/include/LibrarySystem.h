@@ -34,6 +34,8 @@ class LibrarySystem
         void QueryGetCourseData_DB(vector<Course> &MyListCourses,int UserID,int AccountType );
 
         void FillAllCourses();
+
+        void SendMessage(Person person);
 };
 
 #endif // LIBRARYSYSTEM_H

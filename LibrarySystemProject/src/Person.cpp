@@ -36,17 +36,78 @@ void Person::GetUserName()
 
 void Person::ViewMyMessages()
 {
-    for(auto message : Person::ListMyMessages)
+    while(true)
     {
-        message.DisplayMessageTo();
+        int Index=1;
+        for(auto message : Person::ListMyMessages)
+        {
+            cout<<Index<<" - Message :\n";
+            message.DisplayMessageTo();
+            Index++;
+        }
+        cout<<"\n1 - Replay on message\n2 - Back\nInput Number : ";
+        int Chois;
+        cin>>Chois;
+        if(cin.fail() || Chois<1 || Chois >1)
+        {
+            if(!cin.fail() && Chois==2)return;
+            cin.clear();
+            cin.ignore(1000,'\n');
+            cout<<"Invalid Input\n";
+            continue;
+        }
+        int MessageIndex;
+        cout<<"Input Message Number : ";
+        cin>>MessageIndex;
+        if(cin.fail() || MessageIndex<1 || MessageIndex>ListMyMessages.size())
+        {
+            cout<<"Invalid Input\n";
+            continue;
+        }
+        cout<<"Input Your Replay : ";
+        string ReplayMessage;
+        cin.ignore();
+        getline(cin,ReplayMessage,'\n');
+        ListMyMessages[MessageIndex-1].AddReplay(ID , FullName , ReplayMessage );
     }
+
 }
 
 void Person::ViewRecivedMessages()
 {
-    for(auto message : Person::ListMyMessages)
+    while(true)
     {
-        message.DisplayMessageFrom();
+        int Index=1;
+        for(auto message : Person::ListRecivedMessages)
+        {
+            cout<<Index<<" - Message :\n";
+            message.DisplayMessageFrom();
+            Index++;
+        }
+        cout<<"\n1 - Replay on message\n2 - Back\nInput Number : ";
+        int Chois;
+        cin>>Chois;
+        if(cin.fail() || Chois<1 || Chois >1)
+        {
+            if(!cin.fail() && Chois==2)return;
+            cin.clear();
+            cin.ignore(1000,'\n');
+            cout<<"Invalid Input\n";
+            continue;
+        }
+        int MessageIndex;
+        cout<<"Input Message Number : ";
+        cin>>MessageIndex;
+        if(cin.fail() || MessageIndex<1 || MessageIndex>ListRecivedMessages.size())
+        {
+            cout<<"Invalid Input\n";
+            continue;
+        }
+        cout<<"Input Your Replay : ";
+        string ReplayMessage;
+        cin.ignore();
+        getline(cin,ReplayMessage,'\n');
+        ListRecivedMessages[MessageIndex-1].AddReplay(ID , FullName , ReplayMessage );
     }
 }
 

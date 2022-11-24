@@ -103,6 +103,7 @@ void Admin::ViewAllUsers()
         "   Email : "<<(char*)sqlite3_column_text(statment,1)<<"   Username : "<<(char*)sqlite3_column_text(statment,2)<<
         "   Password : "<<(char*)sqlite3_column_text(statment,3)<<"\n\n";
     }
+    sqlite3_close(DB);
 }
 
 void Admin::ViewAdminMenu()
